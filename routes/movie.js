@@ -141,7 +141,7 @@ router.get("/api/v1/movie/search", async function (req, res, next) {
             movies = await movieModel.aggregate([
                 {
                     $match: {
-                        genre: input 
+                        genre: input
                     }
                 },
                 {
@@ -288,13 +288,14 @@ router.get("/api/v1/movie/:id", async function (req, res, next) {
 
 router.post("/api/v1/movie", async function (req, res, next) {
     try {
-        const { name, genre, description, image, rate } = req.body;
+        const { name, genre, description, image, rate, releaseYear } = req.body;
         let newMovie = new movieModel({
             name: name,
             genre: genre,
             description: description,
             image: image,
-            rate: rate
+            rate: rate,
+            releaseYear: releaseYear
         });
         let movie = await newMovie.save();
         return res.status(201).send({
