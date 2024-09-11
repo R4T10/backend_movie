@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "generate-env": "node ./middleware/jwt_decode.js"
+    "generate-env": "node ./middleware/jwt_decode.js",
+    "generate-data": "node ./data/initialData.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
